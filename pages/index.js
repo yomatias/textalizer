@@ -1,4 +1,5 @@
 import styles from '../styles/Home.module.css'
+import Head from 'next/head'
 import Editor from '../components/Editor';
 import { useState } from 'react';
 
@@ -14,7 +15,8 @@ export default function Home() {
     const textType = /text.*/;
 
     if (file.type.match(textType)) {
-      var reader = new FileReader();
+      let reader = new FileReader();
+      let updatedWords = [];
 
       reader.onload = function(e) {
         let content = reader.result;
@@ -38,9 +40,8 @@ export default function Home() {
           }
 
           if(total > 0) {
-            let comue = found;
-            comue.push({ text: word, total: total, current: 0 });
-            setFound(comue);
+            updatedWords.push({ text: word, total: total, current: 0 });
+            setFound(updatedWords);
           }
         });
         
@@ -49,11 +50,6 @@ export default function Home() {
    
       reader.readAsText(file);
     }
-  }
-
-  const goToElement = (elementId) => {
-    const highlightedElement = document.getElementById(elementId);
-		highlightedElement.scrollIntoView({block: "center"});
   }
 
   const getNextId = (current, total) => {
@@ -79,13 +75,19 @@ export default function Home() {
 	}
 
   const scrollToNext = (word) => {
-		const coso = found.filter(element => element.text === word)[0];
-		let id = getNextId(coso.current, coso.total);
-		scrollToElementByCodeAndId(coso, id);
+		const targetWord = found.filter(element => element.text === word)[0];
+		let id = getNextId(targetWord.current, targetWord.total);
+		scrollToElementByCodeAndId(targetWord, id);
 	}
 
   return (
     <div className={styles.container}>
+
+      <Head>
+        <title>textalizer</title>
+        <link rel="icon" href="/favicon.ico" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> */}
+      </Head>
 
       <div className={styles.navbar}>
         <div className={styles.addFileButtonContainer}>

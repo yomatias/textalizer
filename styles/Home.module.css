@@ -8,7 +8,7 @@
   align-items: center;
   background: #172b4d;
   display: flex;
-  height: 40px;
+  height: 70px;
   padding: 5px;
 }
 
@@ -18,19 +18,21 @@
   border-radius: 50%;
   color: white;
   display: flex;
+  font-size: 2em;
   font-weight: bolder;
-  height: 30px;
+  height: 50px;
   justify-content: center;
-  width: 30px;
+  width: 50px;
 }
 
 .addFileButtonContainer:hover {
   background: #445379;
+  cursor: pointer;
 }
 
 .addFileButtonLabel {
   height: 100%;
-  line-height: 1.5;
+  line-height: 1.4;
   text-align: center;
   width: 100%;
 }
@@ -53,10 +55,9 @@
 }
 
 .prepositionChips {
-  border: solid 2px purple;
   border-radius: 12px;
   color: purple;
-  font-size: 12px;
+  font-size: 1.5em;
   font-weight: bold;
   padding: 1px 5px;
   margin-left: 5px;
@@ -74,6 +75,7 @@
   border-radius: 12px;
   color: purple;
   font-weight: bold;
+  font-size: 1.5em;
   padding: 2px 5px;
   margin-left: 5px;
 }
@@ -88,7 +90,7 @@
   background: red;
   border-radius: 12px;
   color: white;
-  font-size: 14px;
+  font-size: 0.8em;
   padding: 1px 5px;
   top: 0;
 }

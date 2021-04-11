@@ -17,11 +17,11 @@ const Editor = (props) => {
   }, [content]);
 
   return(<div>
-    {/* 'codeView', 'save' */}
     <SunEditor 
       setContents={ translation }
+      setDefaultStyle="font-size: 1.5em"
       setOptions={{
-        height: 400,
+        height: 600,
         buttonList: [ buttonsList ]
       }}
     />
